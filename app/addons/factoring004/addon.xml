@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<addon scheme='3.0' edition_type="ROOT,ULT:VENDOR">
+    <id>factoring004</id>
+    <version>1.0</version>
+    <name>Рассрочка 0-0-4</name>
+    <description>Купи сейчас, плати потом! Быстрое и удобное оформление рассрочки на 4 месяца без первоначальной оплаты. Моментальное подтверждение, без комиссий и процентов. Для заказов суммой от 6000 до 200000 тг.</description>
+    <priority>100500</priority>
+    <default_language>ru</default_language>
+    <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
+    <status>active</status>
+
+    <settings>
+        <sections>
+
+        </sections>
+    </settings>
+
+    <queries>
+        <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', 'views/orders/components/payments/cc_factoring004.tpl', 'factoring004.tpl', 'N', 'P');</item>
+
+        <item for="install">
+            CREATE TABLE IF NOT EXISTS `?:factoring004_order_preapps`
+            (
+            `id`         int(11) NOT NULL AUTO_INCREMENT,
+            `order_id`   int(11) NOT NULL,
+            `preapp_uid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+            `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+            PRIMARY KEY (id),
+            UNIQUE KEY `unique_factoring004_order_preapps` (`order_id`,`preapp_uid`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=UTF8
+        </item>
+
+        <item for="uninstall">DELETE FROM `?:payment_processors` WHERE processor = 'factoring004';</item>
+
+        <item for="uninstall">DROP TABLE IF EXISTS ?:factoring004_order_preapps;</item>
+    </queries>
+
+
+</addon>
