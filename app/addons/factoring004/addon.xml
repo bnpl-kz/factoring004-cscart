@@ -31,7 +31,7 @@
             ) ENGINE=InnoDB DEFAULT CHARSET=UTF8
         </item>
 
-        <item for="uninstall">DELETE FROM `?:payment_processors` WHERE processor = 'factoring004';</item>
+        <item for="uninstall">DELETE FROM `?:payment_processors` WHERE processor = 'Рассрочка 0-0-4';</item>
 
         <item for="uninstall">DROP TABLE IF EXISTS ?:factoring004_order_preapps;</item>
     </queries>

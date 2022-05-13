@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+
+
+msgctxt "Addons::name::factoring004"
+msgid ""
+msgstr "Рассрочка 0-0-4"
+
+msgctxt "Addons::description::factoring004"
+msgid ""
+msgstr "Купи сейчас, плати потом! Быстрое и удобное оформление рассрочки на 4 месяца без первоначальной оплаты. Моментальное подтверждение, без комиссий и процентов. Для заказов суммой от 6000 до 200000 тг."
+
+msgctxt "Languages::payments.factoring004.api_host"
+msgid "API Host"
+msgstr "API Host"
+
+msgctxt "Languages::payments.factoring004.preapp_token"
+msgid "OAuth Token bnpl-partners"
+msgstr "OAuth Token bnpl-partners"
+
+msgctxt "Languages::payments.factoring004.delivery_token"
+msgid "OAuth Token AccountingService"
+msgstr "OAuth Token AccountingService"
+
+msgctxt "Languages::payments.factoring004.partner_name"
+msgid "Partner Name"
+msgstr "Partner Name"
+
+msgctxt "Languages::payments.factoring004.partner_code"
+msgid "Partner Code"
+msgstr "Partner Code"
+
+msgctxt "Languages::payments.factoring004.point_code"
+msgid "Point Code"
+msgstr "Point Code"
+
+msgctxt "Languages::payments.factoring004.partner_email"
+msgid "Partner Email"
+msgstr "Partner Email"
+
+msgctxt "Languages::payments.factoring004.partner_website"
+msgid "Partner Website"
+msgstr "Partner Website"
+
+msgctxt "Languages::payments.factoring004.delivery_method"
+msgid "Delivery methods"
+msgstr "Способы доставки"
+
+msgctxt "Languages::payments.factoring004.offer_file"
+msgid "Offer file"
+msgstr "Файл оферты"
