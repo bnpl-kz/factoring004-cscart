@@ -9,16 +9,8 @@
     <default_language>ru</default_language>
     <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
     <status>active</status>
-
-    <settings>
-        <sections>
-
-        </sections>
-    </settings>
-
     <queries>
         <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', 'views/orders/components/payments/cc_factoring004.tpl', 'factoring004.tpl', 'N', 'P');</item>
-
         <item for="install">
             CREATE TABLE IF NOT EXISTS `?:factoring004_order_preapps`
             (
@@ -30,11 +22,7 @@
             UNIQUE KEY `unique_factoring004_order_preapps` (`order_id`,`preapp_uid`)
             ) ENGINE=InnoDB DEFAULT CHARSET=UTF8
         </item>
-
         <item for="uninstall">DELETE FROM `?:payment_processors` WHERE processor = 'Рассрочка 0-0-4';</item>
-
         <item for="uninstall">DROP TABLE IF EXISTS ?:factoring004_order_preapps;</item>
     </queries>
-
-
 </addon>

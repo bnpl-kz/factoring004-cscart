@@ -52,3 +52,35 @@ msgstr "Способы доставки"
 msgctxt "Languages::payments.factoring004.offer_file"
 msgid "Offer file"
 msgstr "Файл оферты"
+
+msgctxt "Languages::payments.factoring004.debug_mode"
+msgid "Debug mode"
+msgstr "Режим отладки"
+
+msgctxt "Languages::payments.factoring004.select_file"
+msgid "Select file"
+msgstr "Выберите файл"
+
+msgctxt "Languages::payments.factoring004.upload_file_success"
+msgid "File uploaded successfully"
+msgstr "Файл успешно загружен"
+
+msgctxt "Languages::payments.factoring004.upload_file_failed"
+msgid "File uploaded failed"
+msgstr "Загрузка файла не удалась"
+
+msgctxt "Languages::payments.factoring004.offer_file_help"
+msgid "Upload the offer file if you need to display it to the client"
+msgstr "Загрузите файл оферты, если вам необходимо его отобразить клиенту"
+
+msgctxt "Languages::payments.factoring004.offer_file_show"
+msgid "Showing"
+msgstr "Просмотреть"
+
+msgctxt "Languages::payments.factoring004.offer_file_delete"
+msgid "Delete"
+msgstr "Удалить"
+
+msgctxt "Languages::payments.factoring004.offer_file_remove"
+msgid "File deleted successfully"
+msgstr "Файл успешно удален"
