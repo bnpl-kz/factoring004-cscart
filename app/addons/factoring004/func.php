@@ -1,13 +1,8 @@
 <?php
 
-use Tygh\Registry;
-
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
-/**
- * @return array
- */
-function getShippings(): array
+function getShippings()
 {
     return fn_get_shippings(true);
 }

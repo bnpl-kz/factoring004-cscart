@@ -6,6 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BnplPartners\\Factoring004Payment\\ApiManager' => $baseDir . '/factoring004-src/ApiManager.php',
+    'BnplPartners\\Factoring004Payment\\PreApp' => $baseDir . '/factoring004-src/PreApp.php',
     'BnplPartners\\Factoring004\\AbstractResource' => $vendorDir . '/bnpl-partners/factoring004/src/AbstractResource.php',
     'BnplPartners\\Factoring004\\Api' => $vendorDir . '/bnpl-partners/factoring004/src/Api.php',
     'BnplPartners\\Factoring004\\ArrayInterface' => $vendorDir . '/bnpl-partners/factoring004/src/ArrayInterface.php',

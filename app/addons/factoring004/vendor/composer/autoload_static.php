@@ -34,6 +34,7 @@ class ComposerStaticInitc1ef999c301574cbed25a3d85e84783a
         'B' => 
         array (
             'BnplPartners\\Factoring004\\' => 26,
+            'BnplPartners\\Factoring004Payment\\' => 33,
         ),
     );
 
@@ -48,8 +49,8 @@ class ComposerStaticInitc1ef999c301574cbed25a3d85e84783a
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -75,9 +76,15 @@ class ComposerStaticInitc1ef999c301574cbed25a3d85e84783a
         array (
             0 => __DIR__ . '/..' . '/bnpl-partners/factoring004/src',
         ),
+        'BnplPartners\\Factoring004Payment\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/factoring004-src',
+        ),
     );
 
     public static $classMap = array (
+        'BnplPartners\\Factoring004Payment\\ApiManager' => __DIR__ . '/../..' . '/factoring004-src/ApiManager.php',
+        'BnplPartners\\Factoring004Payment\\PreApp' => __DIR__ . '/../..' . '/factoring004-src/PreApp.php',
         'BnplPartners\\Factoring004\\AbstractResource' => __DIR__ . '/..' . '/bnpl-partners/factoring004/src/AbstractResource.php',
         'BnplPartners\\Factoring004\\Api' => __DIR__ . '/..' . '/bnpl-partners/factoring004/src/Api.php',
         'BnplPartners\\Factoring004\\ArrayInterface' => __DIR__ . '/..' . '/bnpl-partners/factoring004/src/ArrayInterface.php',
