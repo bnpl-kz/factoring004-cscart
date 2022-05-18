@@ -26,19 +26,15 @@ if (empty($request['preappId']) || !is_string($request['preappId'])) {
     return;
 }
 
-/** @var Tygh\Database\Connection $db */
-$db = Tygh::$app['db'];
-
-$order = $db->getRow(<<<'SQL'
-    SELECT ?:orders.order_id, ?:orders.status
-        FROM ?:orders
-        INNER JOIN ?:payments ON ?:payments.payment_id = ?:orders.payment_id
-        INNER JOIN ?:payment_processors ON ?:payment_processors.processor_id = ?:payments.processor_id
-            AND ?:payment_processors.processor_script = 'factoring004.php'
-        WHERE ?:orders.order_id = ?i
-SQL, $request['billNumber']);
+$order = fn_get_order_info((int) $request['billNumber']);
 
 if (!$order) {
+    return;
+}
+
+$processorParams = $order['payment_method']['processor_params'];
+
+if (strpos(array_key_first($processorParams), 'factoring004') === false) {
     return;
 }
 
