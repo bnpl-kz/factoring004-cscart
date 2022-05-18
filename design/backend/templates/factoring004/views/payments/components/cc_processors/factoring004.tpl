@@ -13,7 +13,7 @@
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="factoring004_delivery_token">{__("payments.factoring004.preapp_token")}:</label>
+    <label class="control-label" for="factoring004_delivery_token">{__("payments.factoring004.delivery_token")}:</label>
     <div class="controls">
         <input required style="width: 80% !important;" type="text" name="payment_data[processor_params][factoring004_delivery_token]" id="factoring004_delivery_token" value="{$processor_params.factoring004_delivery_token}"/>
     </div>

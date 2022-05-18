@@ -10,7 +10,7 @@
     <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
     <status>active</status>
     <queries>
-        <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', 'views/orders/components/payments/cc_outside.tpl', 'factoring004.tpl', 'N', 'P');</item>
+        <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', 'views/orders/components/payments/cc_factoring004.tpl', 'factoring004.tpl', 'N', 'P');</item>
         <item for="install">
             CREATE TABLE IF NOT EXISTS `?:factoring004_order_preapps`
             (

@@ -13,6 +13,10 @@ msgctxt "Addons::description::factoring004"
 msgid ""
 msgstr "Купи сейчас, плати потом! Быстрое и удобное оформление рассрочки на 4 месяца без первоначальной оплаты. Моментальное подтверждение, без комиссий и процентов. Для заказов суммой от 6000 до 200000 тг."
 
+msgctxt "Languages::payments.factoring004.name"
+msgid "Factoring 0-0-4"
+msgstr "Рассрочка 0-0-4"
+
 msgctxt "Languages::payments.factoring004.api_host"
 msgid "API Host"
 msgstr "API Host"
@@ -84,3 +88,19 @@ msgstr "Удалить"
 msgctxt "Languages::payments.factoring004.offer_file_remove"
 msgid "File deleted successfully"
 msgstr "Файл успешно удален"
+
+msgctxt "Languages::payments.factoring004.offer_file_checkbox"
+msgid "I have read and agree to the terms"
+msgstr "Я ознакомлен и согласен с условиями"
+
+msgctxt "Languages::payments.factoring004.condition_sum_min"
+msgid "Минимальная сумма покупки в рассрочку 6000 Тенге. Не хватает"
+msgstr "Минимальная сумма покупки в рассрочку 6000 Тенге. Не хватает"
+
+msgctxt "Languages::payments.factoring004.condition_sum_max"
+msgid "Максимальная сумма покупки в рассрочку 200000 Тенге. Сумма превышает"
+msgstr "Максимальная сумма покупки в рассрочку 200000 Тенге. Сумма превышает"
+
+msgctxt "Languages::payments.factoring004.currency"
+msgid "Тенге"
+msgstr "Тенге"
