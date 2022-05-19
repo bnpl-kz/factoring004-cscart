@@ -9,18 +9,9 @@ use Psr\SimpleCache\InvalidArgumentException;
 
 class CacheOAuthTokenManager implements OAuthTokenManagerInterface
 {
-    /**
-     * @var \BnplPartners\Factoring004\OAuth\OAuthTokenManagerInterface
-     */
-    private $tokenManager;
-    /**
-     * @var \Psr\SimpleCache\CacheInterface
-     */
-    private $cache;
-    /**
-     * @var string
-     */
-    private $cacheKey;
+    private OAuthTokenManagerInterface $tokenManager;
+    private CacheInterface $cache;
+    private string $cacheKey;
 
     public function __construct(OAuthTokenManagerInterface $tokenManager, CacheInterface $cache, string $cacheKey)
     {
@@ -34,10 +25,7 @@ class CacheOAuthTokenManager implements OAuthTokenManagerInterface
         return $this->retrieveAccessToken();
     }
 
-    /**
-     * @return void
-     */
-    public function revokeToken()
+    public function revokeToken(): void
     {
         $this->clearCache();
         $this->tokenManager->revokeToken();
@@ -72,9 +60,8 @@ class CacheOAuthTokenManager implements OAuthTokenManagerInterface
 
     /**
      * @psalm-suppress InvalidCatch
-     * @return void
      */
-    private function clearCache()
+    private function clearCache(): void
     {
         try {
             $this->cache->delete($this->cacheKey);

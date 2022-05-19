@@ -17,7 +17,6 @@ interface OAuthTokenManagerInterface
      * Revokes any token.
      *
      * @throws \BnplPartners\Factoring004\Exception\OAuthException
-     * @return void
      */
-    public function revokeToken();
+    public function revokeToken(): void;
 }
