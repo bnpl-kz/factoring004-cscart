@@ -24,6 +24,7 @@
 
         {if $processorData.processor_script == "factoring004.php"}
             {script src="js/addons/factoring004/order_management_update_delivery.js"}
+            {script src="js/addons/factoring004/order_management_update_refund.js"}
         {/if}
     {/if}
 {/if}
