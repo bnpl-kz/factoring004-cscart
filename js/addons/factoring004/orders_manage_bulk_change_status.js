@@ -1,5 +1,5 @@
 $(function ($) {
-  const disallowedValues = ['C', 'P'];
+  const disallowedValues = ['C', 'P', 'E'];
 
   $('#orders_list_form').on('click', 'a[data-ca-target-form="#orders_list_form"]', function (e) {
     const params = new URL(e.target.href).searchParams;

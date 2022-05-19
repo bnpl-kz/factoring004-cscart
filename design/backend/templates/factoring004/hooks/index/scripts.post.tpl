@@ -4,6 +4,7 @@
     {if $runtime.mode == "manage"}
         {script src="js/addons/factoring004/orders_manage_delivery.js"}
         {script src="js/addons/factoring004/orders_manage_bulk_change_status.js"}
+        {script src="js/addons/factoring004/orders_manage_refund.js"}
     {/if}
 
     {if $runtime.mode == "details"}
