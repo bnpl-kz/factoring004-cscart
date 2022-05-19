@@ -13,6 +13,8 @@ use BnplPartners\Factoring004\Exception\ErrorResponseException;
 use BnplPartners\Factoring004\Exception\PackageException;
 use BnplPartners\Factoring004\Otp\SendOtpReturn;
 use BnplPartners\Factoring004\Response\ErrorResponse;
+use BnplPartners\Factoring004\Transport\GuzzleTransport;
+use BnplPartners\Factoring004Payment\LoggerFactory;
 
 if ($mode !== 'index' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     return;
@@ -41,9 +43,17 @@ $orderShippingMethods = array_map(function (array $shipping) {
     return $shipping['shipping_id'];
 }, $order['shipping']);
 
+$logger = (new LoggerFactory())
+    ->setDebug(isset($processorParams['factoring004_debug_mode']))
+    ->createLogger();
+
+$transport = new GuzzleTransport();
+$transport->setLogger($logger);
+
 $api = Api::create(
     $processorParams['factoring004_api_host'],
     new BearerTokenAuth($processorParams['factoring004_delivery_token']),
+    $transport,
 );
 
 $amount = (isset($_POST['amount']) && is_numeric($_POST['amount'])) ? $_POST['amount'] : 0;
@@ -88,9 +98,13 @@ try {
         ));
     }
 } catch (ErrorResponseException $e) {
+    $logger->error($e);
+
     echo json_encode(['success' => false, 'error' => $e->getErrorResponse()->getMessage()]);
     exit;
 } catch (PackageException $e) {
+    $logger->error($e);
+
     if (defined('DEVELOPMENT') && DEVELOPMENT) {
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     } else {
