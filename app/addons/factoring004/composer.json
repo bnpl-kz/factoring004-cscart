@@ -1,7 +1,8 @@
 {
   "require": {
     "php": ">=7.4",
-    "bnpl-partners/factoring004": ">=0.6"
+    "bnpl-partners/factoring004": ">=0.6",
+    "wa72/simplelogger": "^1.1"
   },
   "autoload": {
     "psr-4": {
