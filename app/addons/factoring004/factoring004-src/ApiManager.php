@@ -7,6 +7,9 @@ use BnplPartners\Factoring004\Auth\BearerTokenAuth;
 
 trait ApiManager
 {
+    /**
+     * @var \BnplPartners\Factoring004\Api
+     */
     public $api;
 
     public function createApi(string $baseUrl, string $token)
