@@ -9,9 +9,9 @@ final class PreApp
 {
     use ApiManager;
 
-    public function __construct($baseUrl, $token)
+    public function __construct($baseUrl, $token, bool $debug = false)
     {
-        $this->createApi($baseUrl, $token);
+        $this->createApi($baseUrl, $token, $debug);
     }
 
     public function preApp($data)
