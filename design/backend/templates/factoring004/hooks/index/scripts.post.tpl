@@ -1,6 +1,12 @@
 {if $runtime.controller == "orders" || "order_management"}
     {script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-popup-overlay/2.1.5/jquery.popupoverlay.min.js"}
 
+    <script>
+        {foreach from=getFactoring004Translations() item="translate" key="langKey"}
+            Tygh.tr('{$langKey}', '{$translate}');
+        {/foreach}
+    </script>
+
     {if $runtime.mode == "manage"}
         {script src="js/addons/factoring004/orders_manage_delivery.js"}
         {script src="js/addons/factoring004/orders_manage_bulk_change_status.js"}
