@@ -104,3 +104,43 @@ msgstr "Максимальная сумма покупки в рассрочку
 msgctxt "Languages::payments.factoring004.currency"
 msgid "Тенге"
 msgstr "Тенге"
+
+msgctxt "Languages::payments.factoring004.shipping_order"
+msgid "Shipping order "
+msgstr "Доставка заказа "
+
+msgctxt "Languages::payments.factoring004.error_occurred"
+msgid "An error occurred"
+msgstr "Произошла ошибка"
+
+msgctxt "Languages::payments.factoring004.checking"
+msgid "Checking"
+msgstr "Проверка"
+
+msgctxt "Languages::payments.factoring004.check"
+msgid "Check"
+msgstr "Проверить"
+
+msgctxt "Languages::payments.factoring004.bulk_orders_editing"
+msgid "Bulk orders editing"
+msgstr "Массовое редактирование заказов"
+
+msgctxt "Languages::payments.factoring004.action_is_not_allowed"
+msgid "Action is not allowed"
+msgstr "Действие не разрешено"
+
+msgctxt "Languages::payments.factoring004.refund_order"
+msgid "Refund order "
+msgstr "Возврат заказа "
+
+msgctxt "Languages::payments.factoring004.amount"
+msgid "Amount"
+msgstr "Сумма"
+
+msgctxt "Languages::payments.factoring004.amount_helper_text"
+msgid "Leave this field is empty or enter 0 to full refund, otherwise partial refund will be made"
+msgstr "Оставьте это поле пустым или укажите 0 для полного возврата. В противном случае будет частичный возврат"
+
+msgctxt "Languages::payments.factoring004.refund"
+msgid "Refund"
+msgstr "Возврат"
