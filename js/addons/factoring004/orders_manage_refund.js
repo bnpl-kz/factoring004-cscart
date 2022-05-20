@@ -34,7 +34,7 @@ $(function ($) {
       blur: false,
       closebutton: true,
       closebuttonmarkup: `
-        <button title="Close"
+        <button title="${Tygh.tr('close')}"
                 style="position: absolute;top: 10px;right: 10px;border: none;
                        background: transparent;font-size: 1.5rem;opacity: 0.5;">
             <span aria-hidden="true">×</span>
@@ -61,7 +61,7 @@ $(function ($) {
       blur: false,
       closebutton: true,
       closebuttonmarkup: `
-        <button title="Close"
+        <button title="${Tygh.tr('close')}"
                 style="position: absolute;top: 10px;right: 10px;border: none;
                        background: transparent;font-size: 1.5rem;opacity: 0.5;">
             <span aria-hidden="true">×</span>
@@ -92,7 +92,7 @@ $(function ($) {
   function notifyError (id, error) {
     $.ceNotification('show', {
       type: 'E',
-      title: 'Refund order #' + id,
+      title: Tygh.tr('payments.factoring004.refund_order') + '#' + id,
       message: error,
     });
   }
@@ -123,7 +123,7 @@ $(function ($) {
 
       success (data) {
         if (!data.success) {
-          notifyError(id, data.error || 'An error occurred');
+          notifyError(id, data.error || Tygh.tr('payments.factoring004.error_occurred'));
           return;
         }
 
@@ -136,7 +136,7 @@ $(function ($) {
       },
 
       error (jqXHR) {
-        let response = jqXHR.responseJSON || {error: 'An error occurred'};
+        let response = jqXHR.responseJSON || {error: Tygh.tr('payments.factoring004.error_occurred')};
 
         notifyError(id, response.error)
       }
@@ -181,13 +181,13 @@ $(function ($) {
 
       beforeSend () {
         submitBtn.prop('disabled', true);
-        submitBtn.text('Checking');
+        submitBtn.text(Tygh.tr('payments.factoring004.checking'));
         hideOtpError();
       },
 
       complete () {
         submitBtn.prop('disabled', false);
-        submitBtn.text('Check');
+        submitBtn.text(Tygh.tr('payments.factoring004.check'));
       },
 
       success (data) {
@@ -201,7 +201,7 @@ $(function ($) {
       },
 
       error (jqXHR) {
-        let response = jqXHR.responseJSON || {error: 'An error occurred'};
+        let response = jqXHR.responseJSON || {error: Tygh.tr('payments.factoring004.error_occurred')};
 
         showOtpError(response.error);
       }
@@ -220,7 +220,7 @@ $(function ($) {
     popup.style.padding = '1rem';
     popup.style.minWidth = '320px';
     popup.innerHTML = `
-    <h3 class="text-center" style="margin-top: 0;">Check OTP</h3>
+    <h3 class="text-center" style="margin-top: 0;">${Tygh.tr('payments.factoring004.check')} OTP</h3>
 
     <div id="alert-factoring004-refund-otp" class="alert alert-danger text-center" hidden></div>
 
@@ -234,7 +234,7 @@ $(function ($) {
         <div class="text-center" style="margin: 1rem 0">
             <input id="factoring004-refund-otp-input-order-id" type="hidden" name="order_id">
             <input id="factoring004-refund-otp-input-amount" type="hidden" name="amount">
-            <button id="btn-factoring004-refund-otp" class="btn btn-primary">Check</button>
+            <button id="btn-factoring004-refund-otp" class="btn btn-primary">${Tygh.tr('payments.factoring004.check')}</button>
         </div>
     </form>
   `;
@@ -253,14 +253,14 @@ $(function ($) {
     popup.innerHTML = `
     <form id="form-factoring004-refund-amount" style="margin-bottom: 0">
         <div>
-            <label for="factoring004-refund-input-amount">Amount</label>
+            <label for="factoring004-refund-input-amount">${Tygh.tr('payments.factoring004.amount')}</label>
             <input id="factoring004-refund-input-amount" type="number" name="amount" style="width: 100%" min="0">
-            <small>Leave this field is empty or enter 0 to full refund, otherwise partial refund will be made</small>
+            <small>${Tygh.tr('payments.factoring004.amount_helper_text')}</small>
         </div>
 
         <div class="text-center" style="margin: 1rem 0">
             <input id="factoring004-refund-input-order-id" type="hidden">
-            <button class="btn btn-primary">Refund</button>
+            <button class="btn btn-primary">${Tygh.tr('payments.factoring004.refund')}</button>
         </div>
     </form>
   `;
