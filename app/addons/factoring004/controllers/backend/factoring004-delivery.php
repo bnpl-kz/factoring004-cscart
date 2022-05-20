@@ -101,7 +101,7 @@ try {
     if (defined('DEVELOPMENT') && DEVELOPMENT) {
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     } else {
-        echo json_encode(['success' => false, 'error' => 'An error occurred']);
+        echo json_encode(['success' => false, 'error' => __('payments.factoring004.error_occurred')]);
     }
 
     exit;

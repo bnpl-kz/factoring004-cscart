@@ -13,8 +13,8 @@ $(function ($) {
 
     $.ceNotification('show', {
       type: 'W',
-      title: 'Bulk orders edit',
-      message: 'Action is not allowed',
+      title: Tygh.tr('payments.factoring004.bulk_orders_editing'),
+      message: Tygh.tr('payments.factoring004.action_is_not_allowed'),
     });
   });
 });

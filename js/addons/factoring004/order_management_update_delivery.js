@@ -41,8 +41,8 @@ $(function ($) {
         if (!data.success) {
           $.ceNotification('show', {
             type: 'E',
-            title: 'Shipping order #' + id,
-            message: data.error || 'An error occurred',
+            title: Tygh.tr('payments.factoring004.shipping_order') + '#' + id,
+            message: data.error || Tygh.tr('payments.factoring004.error_occurred'),
           });
           return;
         }
@@ -60,7 +60,7 @@ $(function ($) {
           blur: false,
           closebutton: true,
           closebuttonmarkup: `
-              <button title="Close"
+              <button title="${Tygh.tr('close')}"
                       style="position: absolute;top: 10px;right: 10px;border: none;
                              background: transparent;font-size: 1.5rem;opacity: 0.5;">
                   <span aria-hidden="true">×</span>
@@ -77,11 +77,11 @@ $(function ($) {
       },
 
       error (jqXHR) {
-        let response = jqXHR.responseJSON || {error: 'An error occurred'};
+        let response = jqXHR.responseJSON || {error: Tygh.tr('payments.factoring004.error_occurred')};
 
         $.ceNotification('show', {
           type: 'E',
-          title: 'Shipping order #' + id,
+          title: Tygh.tr('payments.factoring004.shipping_order') + '#' + id,
           message: response.error,
         });
       }
@@ -109,13 +109,13 @@ $(function ($) {
 
       beforeSend () {
         submitBtn.prop('disabled', true);
-        submitBtn.text('Checking');
+        submitBtn.text(Tygh.tr('payments.factoring004.checking'));
         hideOtpError();
       },
 
       complete () {
         submitBtn.prop('disabled', false);
-        submitBtn.text('Check');
+        submitBtn.text(Tygh.tr('payments.factoring004.check'));
       },
 
       success (data) {
@@ -129,7 +129,7 @@ $(function ($) {
       },
 
       error (jqXHR) {
-        let response = jqXHR.responseJSON || {error: 'An error occurred'};
+        let response = jqXHR.responseJSON || {error: Tygh.tr('payments.factoring004.error_occurred')};
 
         showOtpError(response.error);
       }
@@ -148,7 +148,7 @@ $(function ($) {
     popup.style.padding = '1rem';
     popup.style.minWidth = '320px';
     popup.innerHTML = `
-    <h3 class="text-center" style="margin-top: 0;">Check OTP</h3>
+    <h3 class="text-center" style="margin-top: 0;">${Tygh.tr('payments.factoring004.check')} OTP</h3>
 
     <div id="alert-factoring004-otp" class="alert alert-danger text-center" hidden></div>
 
@@ -161,7 +161,7 @@ $(function ($) {
 
         <div class="text-center" style="margin: 1rem 0">
             <input id="factoring004-otp-input-order-id" type="hidden" name="order_id">
-            <button id="btn-factoring004-otp" class="btn btn-primary">Check</button>
+            <button id="btn-factoring004-otp" class="btn btn-primary">${Tygh.tr('payments.factoring004.check')}</button>
         </div>
     </form>
   `;
