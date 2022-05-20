@@ -45,3 +45,11 @@ function fn_factoring004_change_order_status_before_update_product_amount(
         throw $e;
     }
 }
+
+/**
+ * @return array<string, string>
+ */
+function getFactoring004Translations(): array
+{
+    return \Tygh\Languages\Values::getLangVarsByPrefix('payments.factoring004');
+}
