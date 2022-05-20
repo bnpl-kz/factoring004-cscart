@@ -53,7 +53,16 @@ if ($request['status'] === 'completed') {
 }
 
 if ($order['status'] === OrderStatuses::OPEN) {
+    db_query('BEGIN');
+
     $changed = fn_change_order_status((int) $request['billNumber'], $status);
+
+    db_query('INSERT INTO ?:factoring004_order_preapps ?e', [
+        'order_id' => (int) $request['billNumber'],
+        'preapp_uid' => $request['preappId'],
+    ]);
+
+    db_query('COMMIT');
 
     if (!$changed) {
         return;
