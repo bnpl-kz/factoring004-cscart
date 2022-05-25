@@ -8,12 +8,30 @@ use BnplPartners\Factoring004\ArrayInterface;
 
 class Item implements ArrayInterface
 {
-    private string $itemId;
-    private string $itemName;
-    private ?string $itemCategory = null;
-    private int $itemQuantity;
-    private int $itemPrice;
-    private int $itemSum;
+    /**
+     * @var string
+     */
+    private $itemId;
+    /**
+     * @var string
+     */
+    private $itemName;
+    /**
+     * @var string|null
+     */
+    private $itemCategory;
+    /**
+     * @var int
+     */
+    private $itemQuantity;
+    /**
+     * @var int
+     */
+    private $itemPrice;
+    /**
+     * @var int
+     */
+    private $itemSum;
 
     public function __construct(
         string $itemId,
@@ -42,14 +60,14 @@ class Item implements ArrayInterface
      *
      * @return \BnplPartners\Factoring004\PreApp\Item
      */
-    public static function createFromArray(array $item): Item
+    public static function createFromArray($item): Item
     {
         $self = new self(
             $item['itemId'],
             $item['itemName'],
             $item['itemQuantity'],
             $item['itemPrice'],
-            $item['itemSum'],
+            $item['itemSum']
         );
 
         if (isset($item['itemCategory'])) {
@@ -69,7 +87,10 @@ class Item implements ArrayInterface
         return $this->itemName;
     }
 
-    public function getItemCategory(): ?string
+    /**
+     * @return string|null
+     */
+    public function getItemCategory()
     {
         return $this->itemCategory;
     }

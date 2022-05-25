@@ -13,5 +13,5 @@ use MyCLabs\Enum\Enum;
  */
 final class CancelStatus extends Enum
 {
-    private const CANCEL = 'canceled';
+    const CANCEL = 'canceled';
 }

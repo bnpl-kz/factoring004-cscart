@@ -9,8 +9,15 @@ use JsonSerializable;
 
 class DtoOtp implements JsonSerializable, ArrayInterface
 {
-    private string $msg;
-    private bool $error;
+    /**
+     * @var string
+     */
+    private $msg;
+
+    /**
+     * @var bool
+     */
+    private $error;
 
     public function __construct(string $msg, bool $error = false)
     {
@@ -22,7 +29,7 @@ class DtoOtp implements JsonSerializable, ArrayInterface
      * @param array<string, string> $changeStatus
      * @psalm-param array{msg: string, error?: bool|string} $changeStatus
      */
-    public static function createFromArray(array $changeStatus): DtoOtp
+    public static function createFromArray($changeStatus): DtoOtp
     {
         $error = $changeStatus['error'] ?? false;
 

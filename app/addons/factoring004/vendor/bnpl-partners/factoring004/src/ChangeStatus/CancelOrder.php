@@ -23,9 +23,4 @@ class CancelOrder extends AbstractMerchantOrder
     {
         return new self($order['orderId'], new CancelStatus($order['status']));
     }
-
-    public function getStatus(): CancelStatus
-    {
-        return $this->status;
-    }
 }
