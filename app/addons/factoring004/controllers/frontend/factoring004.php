@@ -1,7 +1,11 @@
 <?php
 
+require_once DIR_ROOT . '/app/addons/factoring004/vendor/autoload.php';
+
 /** @var string $mode */
 
+use BnplPartners\Factoring004\Exception\InvalidSignatureException;
+use BnplPartners\Factoring004\Signature\PostLinkSignatureValidator;
 use Tygh\Enum\OrderStatuses;
 
 if ($mode !== 'index' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -36,6 +40,16 @@ $processorParams = $order['payment_method']['processor_params'];
 
 if (strpos(array_key_first($processorParams), 'factoring004') === false) {
     return;
+}
+
+if (isset($request['signature'])) {
+    $validator = new PostLinkSignatureValidator($processorParams['factoring004_partner_code']);
+
+    try {
+        $validator->validateData($request);
+    } catch (InvalidSignatureException $e) {
+        return;
+    }
 }
 
 if ($request['status'] === 'preapproved') {
