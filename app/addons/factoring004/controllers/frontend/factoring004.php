@@ -6,6 +6,7 @@ require_once DIR_ROOT . '/app/addons/factoring004/vendor/autoload.php';
 
 use BnplPartners\Factoring004\Exception\InvalidSignatureException;
 use BnplPartners\Factoring004\Signature\PostLinkSignatureValidator;
+use BnplPartners\Factoring004Payment\LoggerFactory;
 use Tygh\Enum\OrderStatuses;
 
 if ($mode !== 'index' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -41,6 +42,11 @@ $processorParams = $order['payment_method']['processor_params'];
 if (strpos(array_key_first($processorParams), 'factoring004') === false) {
     return;
 }
+
+LoggerFactory::create()
+    ->setDebug(isset($processorParams['factoring004_debug_mode']))
+    ->createLogger()
+    ->debug(json_encode($request));
 
 $validator = new PostLinkSignatureValidator($processorParams['factoring004_partner_code']);
 
