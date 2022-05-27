@@ -42,14 +42,12 @@ if (strpos(array_key_first($processorParams), 'factoring004') === false) {
     return;
 }
 
-if (isset($request['signature'])) {
-    $validator = new PostLinkSignatureValidator($processorParams['factoring004_partner_code']);
+$validator = new PostLinkSignatureValidator($processorParams['factoring004_partner_code']);
 
-    try {
-        $validator->validateData($request);
-    } catch (InvalidSignatureException $e) {
-        return;
-    }
+try {
+    $validator->validateData($request);
+} catch (InvalidSignatureException $e) {
+    return;
 }
 
 if ($request['status'] === 'preapproved') {
