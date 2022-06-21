@@ -70,7 +70,7 @@ if ($request['status'] === 'completed') {
     $response = 'declined';
 }
 
-if ($order['status'] === OrderStatuses::OPEN) {
+if ($order['status'] === OrderStatuses::INCOMPLETED) {
     db_query('BEGIN');
 
     $changed = fn_change_order_status((int) $request['billNumber'], $status);
