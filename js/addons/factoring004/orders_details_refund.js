@@ -158,7 +158,7 @@ $(function ($) {
     e.stopPropagation();
 
     const elem = e.target;
-    const [id] = elem.href.match(/\d+/) || [];
+    const id = new URL(elem.href).searchParams.get('id');
     srcElem = elem;
 
     if (!id) return;
