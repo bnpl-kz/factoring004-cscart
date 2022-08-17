@@ -13,6 +13,6 @@ $preApp = new \BnplPartners\Factoring004Payment\PreApp(
     isset($order_info['payment_method']['processor_params']['factoring004_debug_mode']),
 );
 
-fn_create_payment_form((string) $preApp->preApp($order_info), array(),'', true, 'get');
+fn_redirect((string) $preApp->preApp($order_info), true, true);
 
 exit;
