@@ -1,18 +1,19 @@
 {assign var=minsum value=6000}
 {assign var=maxsum value=200000}
-
+<link rel="stylesheet" href="/design/themes/responsive/css/addons/factoring004/factoring004-paymentshedule.css">
 <div class="litecheckout__group">
     <div class="litecheckout__field">
-        <div {if !empty($cart.payment_method_data.processor_params.factoring004_offer_file)} style="margin-bottom: 20px;" {/if}>
+        <div style="width: 100%; {if !empty($cart.payment_method_data.processor_params.factoring004_offer_file)} margin-bottom: 20px; {/if}" >
         {if $cart.total < $minsum}
             <span style="color: brown; font-weight: bold">
                 {__("payments.factoring004.condition_sum_min")} {$minsum - $cart.total} {__("payments.factoring004.currency")}
             </span>
-        {/if}
-        {if $cart.total > $maxsum}
+        {elseif $cart.total > $maxsum}
             <span style="color: brown; font-weight: bold">
                 {__("payments.factoring004.condition_sum_max")} {$maxsum - $cart.total} {__("payments.factoring004.currency")}
             </span>
+        {else}
+            <div id="factoring004-paymentschedule"></div>
         {/if}
         </div>
 
@@ -30,16 +31,22 @@
         {/if}
     </div>
 </div>
-
+<script type="text/javascript" src="/js/addons/factoring004/factoring004-paymentshedule.js"></script>
 <script>
     (function (_, $) {
-        const totalSum = parseInt('{$cart.total}');
-        const maxSum = parseInt('{$maxsum}');
-        const minSum = parseInt('{$minsum}');
+        $(document).ajaxStop(function () {
+            const totalSum = parseInt('{$cart.total}');
+            const maxSum = parseInt('{$maxsum}');
+            const minSum = parseInt('{$minsum}');
 
-        let submitButton = $('.litecheckout__submit-btn');
+            let submitButton = $('.litecheckout__submit-btn');
 
-        if (totalSum > maxSum || totalSum < minSum) submitButton.prop('disabled',true).css('opacity',0.5)
+            if (totalSum > maxSum || totalSum < minSum) submitButton.prop('disabled',true).css('opacity',0.5)
 
+            if ($('#factoring004-paymentschedule').length) {
+                const plugin = new Factoring004.PaymentSchedule({ elemId:'factoring004-paymentschedule', totalAmount: totalSum });
+                plugin.render();
+            }
+        })
     }(Tygh, Tygh.$))
 </script>
