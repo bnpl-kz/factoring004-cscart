@@ -12,8 +12,7 @@
     {/if}
 
     {if $runtime.mode == "details"}
-        {script src="js/addons/factoring004/orders_details_delivery.js"}
-        {script src="js/addons/factoring004/orders_details_refund.js"}
+        {script src="js/addons/factoring004/orders_details.js"}
     {/if}
 
     {if $runtime.mode == "update"}
