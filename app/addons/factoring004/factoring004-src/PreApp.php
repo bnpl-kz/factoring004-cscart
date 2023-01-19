@@ -55,6 +55,7 @@ final class PreApp
 
         } catch (PackageException $e) {
             $this->log($e);
+            throw $e;
         }
     }
 }

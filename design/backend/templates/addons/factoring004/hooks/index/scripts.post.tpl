@@ -8,14 +8,11 @@
     </script>
 
     {if $runtime.mode == "manage"}
-        {script src="js/addons/factoring004/orders_manage_delivery.js"}
-        {script src="js/addons/factoring004/orders_manage_bulk_change_status.js"}
-        {script src="js/addons/factoring004/orders_manage_refund.js"}
+        {script src="js/addons/factoring004/orders_manage.js"}
     {/if}
 
     {if $runtime.mode == "details"}
-        {script src="js/addons/factoring004/orders_details_delivery.js"}
-        {script src="js/addons/factoring004/orders_details_refund.js"}
+        {script src="js/addons/factoring004/orders_details.js"}
     {/if}
 
     {if $runtime.mode == "update"}
@@ -29,8 +26,7 @@
         </script>
 
         {if $processorData.processor_script == "factoring004.php"}
-            {script src="js/addons/factoring004/order_management_update_delivery.js"}
-            {script src="js/addons/factoring004/order_management_update_refund.js"}
+            {script src="js/addons/factoring004/order_management_update.js"}
         {/if}
     {/if}
 {/if}

@@ -12,18 +12,38 @@ use InvalidArgumentException;
  */
 class PartnerData implements ArrayInterface
 {
-    private string $partnerName;
-    private string $partnerCode;
-    private string $pointCode;
-    private ?string $partnerEmail;
-    private ?string $partnerWebsite;
+    /**
+     * @var string
+     */
+    private $partnerName;
+    /**
+     * @var string
+     */
+    private $partnerCode;
+    /**
+     * @var string
+     */
+    private $pointCode;
 
+    /**
+     * @var string|null
+     */
+    private $partnerEmail;
+    /**
+     * @var string|null
+     */
+    private $partnerWebsite;
+
+    /**
+     * @param string|null $partnerEmail
+     * @param string|null $partnerWebsite
+     */
     public function __construct(
         string $partnerName,
         string $partnerCode,
         string $pointCode,
-        ?string $partnerEmail = null,
-        ?string $partnerWebsite = null
+        $partnerEmail = null,
+        $partnerWebsite = null
     ) {
         $this->partnerName = $partnerName;
         $this->partnerCode = $partnerCode;
@@ -44,7 +64,7 @@ class PartnerData implements ArrayInterface
      *
      * @throws \InvalidArgumentException
      */
-    public static function createFromArray(array $partnerData): PartnerData
+    public static function createFromArray($partnerData): PartnerData
     {
         if (empty($partnerData['partnerName'])) {
             throw new InvalidArgumentException("Key 'partnerName' is required");
@@ -63,7 +83,7 @@ class PartnerData implements ArrayInterface
             $partnerData['partnerCode'],
             $partnerData['pointCode'],
             $partnerData['partnerEmail'] ?? null,
-            $partnerData['partnerWebsite'] ?? null,
+            $partnerData['partnerWebsite'] ?? null
         );
     }
 
@@ -82,12 +102,18 @@ class PartnerData implements ArrayInterface
         return $this->pointCode;
     }
 
-    public function getPartnerEmail(): ?string
+    /**
+     * @return string|null
+     */
+    public function getPartnerEmail()
     {
         return $this->partnerEmail;
     }
 
-    public function getPartnerWebsite(): ?string
+    /**
+     * @return string|null
+     */
+    public function getPartnerWebsite()
     {
         return $this->partnerWebsite;
     }

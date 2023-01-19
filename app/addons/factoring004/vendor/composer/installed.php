@@ -7,7 +7,7 @@
         'aliases' => array(),
         'reference' => NULL,
         'name' => '__root__',
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         '__root__' => array(
@@ -20,12 +20,12 @@
             'dev_requirement' => false,
         ),
         'bnpl-partners/factoring004' => array(
-            'pretty_version' => '0.6.0',
-            'version' => '0.6.0.0',
+            'pretty_version' => 'dev-legacy',
+            'version' => 'dev-legacy',
             'type' => 'library',
             'install_path' => __DIR__ . '/../bnpl-partners/factoring004',
             'aliases' => array(),
-            'reference' => 'ebf0b63bd55f83aaa078fd156de5989441bfd3f3',
+            'reference' => '34290cdafacde70eb89796197b2f8f3b4ef54bf1',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(

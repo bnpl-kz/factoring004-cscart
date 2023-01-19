@@ -6,13 +6,17 @@ require_once DIR_ROOT . '/app/addons/factoring004/vendor/autoload.php';
 
 /** @var $order_id */
 /** @var $order_info */
+try {
+    $preApp = new \BnplPartners\Factoring004Payment\PreApp(
+        $order_info['payment_method']['processor_params']['factoring004_api_host'],
+        $order_info['payment_method']['processor_params']['factoring004_preapp_token'],
+        isset($order_info['payment_method']['processor_params']['factoring004_debug_mode']),
+    );
 
-$preApp = new \BnplPartners\Factoring004Payment\PreApp(
-    $order_info['payment_method']['processor_params']['factoring004_api_host'],
-    $order_info['payment_method']['processor_params']['factoring004_preapp_token'],
-    isset($order_info['payment_method']['processor_params']['factoring004_debug_mode']),
-);
+    fn_redirect($preApp->preApp($order_info), true, true);
 
-fn_create_payment_form((string) $preApp->preApp($order_info), array());
+} catch (Exception $e) {
+    fn_redirect(fn_url('factoring004-errorpage'));
+}
 
 exit;

@@ -21,8 +21,9 @@ class OtpResource extends AbstractResource
      * @throws \BnplPartners\Factoring004\Exception\NetworkException
      * @throws \BnplPartners\Factoring004\Exception\TransportException
      * @throws \BnplPartners\Factoring004\Exception\UnexpectedResponseException
+     * @param \BnplPartners\Factoring004\Otp\CheckOtp $otp
      */
-    public function checkOtp(CheckOtp $otp): DtoOtp
+    public function checkOtp($otp): DtoOtp
     {
         $response = $this->postRequest('/accountingservice/1.0/checkOtp', $otp->toArray());
 
@@ -42,8 +43,9 @@ class OtpResource extends AbstractResource
      * @throws \BnplPartners\Factoring004\Exception\NetworkException
      * @throws \BnplPartners\Factoring004\Exception\TransportException
      * @throws \BnplPartners\Factoring004\Exception\UnexpectedResponseException
+     * @param \BnplPartners\Factoring004\Otp\SendOtp $otp
      */
-    public function sendOtp(SendOtp $otp): DtoOtp
+    public function sendOtp($otp): DtoOtp
     {
         $response = $this->postRequest('/accountingservice/1.0/sendOtp', $otp->toArray());
 
@@ -63,8 +65,9 @@ class OtpResource extends AbstractResource
      * @throws \BnplPartners\Factoring004\Exception\NetworkException
      * @throws \BnplPartners\Factoring004\Exception\TransportException
      * @throws \BnplPartners\Factoring004\Exception\UnexpectedResponseException
+     * @param \BnplPartners\Factoring004\Otp\CheckOtpReturn $otp
      */
-    public function checkOtpReturn(CheckOtpReturn $otp): DtoOtp
+    public function checkOtpReturn($otp): DtoOtp
     {
         $response = $this->postRequest('/accountingservice/1.0/checkOtpReturn', $otp->toArray());
 
@@ -84,8 +87,9 @@ class OtpResource extends AbstractResource
      * @throws \BnplPartners\Factoring004\Exception\NetworkException
      * @throws \BnplPartners\Factoring004\Exception\TransportException
      * @throws \BnplPartners\Factoring004\Exception\UnexpectedResponseException
+     * @param \BnplPartners\Factoring004\Otp\SendOtpReturn $otp
      */
-    public function sendOtpReturn(SendOtpReturn $otp): DtoOtp
+    public function sendOtpReturn($otp): DtoOtp
     {
         $response = $this->postRequest('/accountingservice/1.0/sendOtpReturn', $otp->toArray());
 
@@ -102,8 +106,9 @@ class OtpResource extends AbstractResource
      * @throws \BnplPartners\Factoring004\Exception\AuthenticationException
      * @throws \BnplPartners\Factoring004\Exception\ErrorResponseException
      * @throws \BnplPartners\Factoring004\Exception\UnexpectedResponseException
+     * @return void
      */
-    private function handleClientError(ResponseInterface $response): void
+    private function handleClientError(ResponseInterface $response)
     {
         if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 500) {
             $data = $response->getBody();

@@ -17,6 +17,6 @@ final class DeliveryStatus extends Enum
     /**
      * @deprecated Use DeliveryStatus::DELIVERED instead
      */
-    private const DELIVERY = 'delivered';
-    private const DELIVERED = 'delivered';
+    const DELIVERY = 'delivered';
+    const DELIVERED = 'delivered';
 }

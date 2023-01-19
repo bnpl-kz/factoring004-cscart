@@ -51,7 +51,7 @@ msgstr "Partner Website"
 
 msgctxt "Languages::payments.factoring004.delivery_method"
 msgid "Delivery methods"
-msgstr "Способы доставки"
+msgstr "Способы доставки для подтверждения через смс"
 
 msgctxt "Languages::payments.factoring004.offer_file"
 msgid "Offer file"

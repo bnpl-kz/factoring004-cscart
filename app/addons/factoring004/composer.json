@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">=7.4",
-    "bnpl-partners/factoring004": ">=0.6",
+    "bnpl-partners/factoring004": "dev-legacy",
     "wa72/simplelogger": "^1.1"
   },
   "autoload": {

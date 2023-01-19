@@ -1,7 +1,12 @@
 <?php
 
+require_once DIR_ROOT . '/app/addons/factoring004/vendor/autoload.php';
+
 /** @var string $mode */
 
+use BnplPartners\Factoring004\Exception\InvalidSignatureException;
+use BnplPartners\Factoring004\Signature\PostLinkSignatureValidator;
+use BnplPartners\Factoring004Payment\LoggerFactory;
 use Tygh\Enum\OrderStatuses;
 
 if ($mode !== 'index' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -38,6 +43,19 @@ if (strpos(array_key_first($processorParams), 'factoring004') === false) {
     return;
 }
 
+LoggerFactory::create()
+    ->setDebug(isset($processorParams['factoring004_debug_mode']))
+    ->createLogger()
+    ->debug(json_encode($request));
+
+$validator = new PostLinkSignatureValidator($processorParams['factoring004_partner_code']);
+
+try {
+    $validator->validateData($request);
+} catch (InvalidSignatureException $e) {
+    return;
+}
+
 if ($request['status'] === 'preapproved') {
     header('Content-Type: application/json');
     echo json_encode(['response' => 'preapproved']);
@@ -52,7 +70,7 @@ if ($request['status'] === 'completed') {
     $response = 'declined';
 }
 
-if ($order['status'] === OrderStatuses::OPEN) {
+if ($order['status'] === OrderStatuses::INCOMPLETED) {
     db_query('BEGIN');
 
     $changed = fn_change_order_status((int) $request['billNumber'], $status);
