@@ -10,19 +10,7 @@
     <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
     <status>active</status>
     <queries>
-        <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', 'views/orders/components/payments/cc_factoring004.tpl', 'factoring004.tpl', 'N', 'P');</item>
-        <item for="install">
-            CREATE TABLE IF NOT EXISTS `?:factoring004_order_preapps`
-            (
-            `id`         int(11) NOT NULL AUTO_INCREMENT,
-            `order_id`   int(11) NOT NULL,
-            `preapp_uid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-            `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-            PRIMARY KEY (id),
-            UNIQUE KEY `unique_factoring004_order_preapps` (`order_id`,`preapp_uid`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=UTF8
-        </item>
+        <item>INSERT INTO `?:payment_processors` (processor, processor_script, processor_template, admin_template, callback, type) values ('Рассрочка 0-0-4', 'factoring004.php', '', 'factoring004.tpl', 'N', 'P');</item>
         <item for="uninstall">DELETE FROM `?:payment_processors` WHERE processor = 'Рассрочка 0-0-4';</item>
-        <item for="uninstall">DROP TABLE IF EXISTS ?:factoring004_order_preapps;</item>
     </queries>
 </addon>
