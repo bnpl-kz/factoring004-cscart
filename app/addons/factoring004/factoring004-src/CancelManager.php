@@ -25,7 +25,11 @@ class CancelManager
     public function __construct(array $processorParams)
     {
         $this->processorParams = $processorParams;
-        $this->createApi($processorParams['factoring004_api_host'], $processorParams['factoring004_delivery_token']);
+        $this->createApi(
+            $processorParams['factoring004_api_host'],
+            $processorParams['factoring004_login'],
+            $processorParams['factoring004_password']
+        );
     }
 
     /**

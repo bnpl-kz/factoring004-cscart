@@ -8,9 +8,12 @@ use BnplPartners\Factoring004\Api;
 use BnplPartners\Factoring004\Auth\BearerTokenAuth;
 use BnplPartners\Factoring004\Exception\ErrorResponseException;
 use BnplPartners\Factoring004\Exception\PackageException;
+use BnplPartners\Factoring004\OAuth\CacheOAuthTokenManager;
+use BnplPartners\Factoring004\OAuth\OAuthTokenManager;
 use BnplPartners\Factoring004\Otp\CheckOtp;
 use BnplPartners\Factoring004\Transport\GuzzleTransport;
 use BnplPartners\Factoring004Payment\LoggerFactory;
+use Desarrolla2\Cache\File as FileCache;
 
 if ($mode !== 'index' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     return;
@@ -45,9 +48,20 @@ $logger = (new LoggerFactory())
 $transport = new GuzzleTransport();
 $transport->setLogger($logger);
 
+$auth_path = '/users/api/v1';
+$cache_key = 'factoring004';
+
+$tokenManager = new OAuthTokenManager(
+    $processorParams['factoring004_api_host'].$auth_path,
+    $processorParams['factoring004_login'],
+    $processorParams['factoring004_password']
+);
+$cache = new FileCache(DIR_ROOT . "/app/addons/factoring004/");
+$cacheTokenManager = new CacheOAuthTokenManager($tokenManager, $cache, $cache_key);
+
 $api = Api::create(
     $processorParams['factoring004_api_host'],
-    new BearerTokenAuth($processorParams['factoring004_delivery_token']),
+    new BearerTokenAuth($cacheTokenManager->getAccessToken()->getAccess()),
     $transport,
 );
 

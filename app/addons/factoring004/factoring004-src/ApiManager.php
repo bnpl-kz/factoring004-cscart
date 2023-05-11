@@ -4,23 +4,30 @@ namespace BnplPartners\Factoring004Payment;
 
 use BnplPartners\Factoring004\Api;
 use BnplPartners\Factoring004\Auth\BearerTokenAuth;
+use BnplPartners\Factoring004\OAuth\CacheOAuthTokenManager;
+use BnplPartners\Factoring004\OAuth\OAuthTokenManager;
 use BnplPartners\Factoring004\Transport\GuzzleTransport;
 use BnplPartners\Factoring004\Transport\TransportInterface;
 use Psr\Log\LoggerInterface;
+use Desarrolla2\Cache\File as FileCache;
 
 trait ApiManager
 {
+    static string $auth_path = '/users/api/v1';
+
+    static string $cache_key = 'factoring004';
+
     protected LoggerInterface $logger;
 
-    /**
-     * @var \BnplPartners\Factoring004\Api
-     */
-    public $api;
+    public Api $api;
 
-    public function createApi(string $baseUrl, string $token, bool $debug = false)
+    public function createApi(string $baseUrl, string $login, string $password, bool $debug = false)
     {
         $this->logger = (new LoggerFactory())->setDebug($debug)->createLogger();
-        $this->api = Api::create($baseUrl, new BearerTokenAuth($token), $this->createTransport());
+        $tokenManager = new OAuthTokenManager($baseUrl.static::$auth_path, $login, $password);
+        $cache = new FileCache(DIR_ROOT . "/app/addons/factoring004/");
+        $cacheTokenManager = new CacheOAuthTokenManager($tokenManager, $cache, static::$cache_key);
+        $this->api = Api::create($baseUrl, new BearerTokenAuth($cacheTokenManager->getAccessToken()->getAccess()), $this->createTransport());
     }
 
     public function log($log)
