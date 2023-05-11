@@ -31,6 +31,10 @@ class ComposerStaticInitc9e42cc647b69eb8dc412c4d02ff5a36
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'D' => 
+        array (
+            'Desarrolla2\\Cache\\' => 18,
+        ),
         'B' => 
         array (
             'BnplPartners\\Factoring004\\' => 26,
@@ -71,6 +75,10 @@ class ComposerStaticInitc9e42cc647b69eb8dc412c4d02ff5a36
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Desarrolla2\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/desarrolla2/cache/src',
         ),
         'BnplPartners\\Factoring004\\' => 
         array (
