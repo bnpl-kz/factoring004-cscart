@@ -63,10 +63,10 @@ if ($request['status'] === 'preapproved') {
 }
 
 if ($request['status'] === 'completed') {
-    $status = OrderStatuses::PAID;
+    fn_change_order_status($order['order_id'], OrderStatuses::PAID);
     $response = 'ok';
 } else {
-    $status = OrderStatuses::FAILED;
+    fn_change_order_status($order['order_id'], OrderStatuses::FAILED);
     $response = 'declined';
 }
 
