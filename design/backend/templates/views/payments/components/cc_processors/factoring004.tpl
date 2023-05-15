@@ -6,16 +6,16 @@
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="factoring004_preapp_token">{__("payments.factoring004.preapp_token")}:</label>
+    <label class="control-label" for="factoring004_login">{__("payments.factoring004.login")}:</label>
     <div class="controls">
-        <input required style="width: 80% !important;" type="text" name="payment_data[processor_params][factoring004_preapp_token]" id="factoring004_preapp_token" value="{$processor_params.factoring004_preapp_token}"/>
+        <input required style="width: 80% !important;" type="text" name="payment_data[processor_params][factoring004_login]" id="factoring004_login" value="{$processor_params.factoring004_login}"/>
     </div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="factoring004_delivery_token">{__("payments.factoring004.delivery_token")}:</label>
+    <label class="control-label" for="factoring004_password">{__("payments.factoring004.password")}:</label>
     <div class="controls">
-        <input required style="width: 80% !important;" type="text" name="payment_data[processor_params][factoring004_delivery_token]" id="factoring004_delivery_token" value="{$processor_params.factoring004_delivery_token}"/>
+        <input required style="width: 80% !important;" type="text" name="payment_data[processor_params][factoring004_password]" id="factoring004_password" value="{$processor_params.factoring004_password}"/>
     </div>
 </div>
 
