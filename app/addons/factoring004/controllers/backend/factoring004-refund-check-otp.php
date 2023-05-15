@@ -66,7 +66,7 @@ $api = Api::create(
 );
 
 $amount = (isset($_POST['amount']) && is_numeric($_POST['amount'])) ? $_POST['amount'] : 0;
-$amountRemaining = (int) ceil($order['total'] - $amount);
+$amountRemaining = $amount ? (int) ceil($order['total'] - $amount) : $amount;
 
 header('Content-Type: application/json');
 
